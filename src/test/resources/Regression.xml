@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Regression">
+    <test name="Regression Tests" preserve-order="false">
+        <classes>
+            <class name="CiTests">
+            </class>
+        </classes>
+    </test>
+</suite>
+

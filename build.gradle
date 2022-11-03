@@ -16,12 +16,17 @@ dependencies {
 
 test {
     useTestNG() {
-        suites "src/test/resources/TestNG.xml"
+        suites "src/test/resources/Smoke.xml"
     }
 }
 
 task testHW18(type: Test) {
     useTestNG() {
         suites "src/test/resources/Homework18.xml"
+    }
+
+tasks.register("runOnGitHub") { // 1
+    group = "custom"      // 3
+    description = "./gradlew runOnGitHub" //3
     }
 }
