@@ -67,7 +67,7 @@ public class BaseTest {
         // Configure your capabilities here
         caps.setCapability("platform", "Windows 10");
         caps.setCapability("browserName", "Chrome");
-        caps.setCapability("version", "92.0");
+        caps.setCapability("version", "91.0");
         caps.setCapability("resolution", "1024x768");
         caps.setCapability("build", "TestNG With Java");
         caps.setCapability("name", this.getClass().getName());
@@ -81,14 +81,14 @@ public class BaseTest {
 
     private WebDriver configRemoteWebDriver() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserName", "opera");
-        capabilities.setCapability("browserVersion", "89.0");
+        capabilities.setCapability("browserName", "chrome");
+        capabilities.setCapability("browserVersion", "106.0");
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", false,
                 "enableVideo", false
         ));
         RemoteWebDriver driver = new RemoteWebDriver(
-                URI.create("http://104.237.11.187:4444/wd/hub").toURL(),
+                URI.create("http://13.59.76.15:4444/wd/hub").toURL(),
                 capabilities);
         return driver;
     }

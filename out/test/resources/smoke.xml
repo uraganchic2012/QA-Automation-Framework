@@ -4,7 +4,7 @@
         <classes>
             <class name="LoginTests">
                 <methods>
-                    <include name="NavigateToHomePage" />
+                    <include name="LoginTest" />
                 </methods>
             </class>
         </classes>
