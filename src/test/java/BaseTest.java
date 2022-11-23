@@ -16,6 +16,8 @@ import java.net.URL;
 import java.time.Duration;
 import java.util.Map;
 
+import static java.lang.System.*;
+
 public class BaseTest {
 
     WebDriver driver;
@@ -23,23 +25,27 @@ public class BaseTest {
     WebDriverWait wait;
     Actions actions;
 
-    static String where = System.getProperty("where");
-    static String browser = System.getProperty("browser");
-    static String env = System.getProperty("env");
-    static String suite = System.getProperty("suite");
-
-    static String parameters = where + " " + browser + " " + env + " " + suite;
+    static String where;
+    static String browser;
+    static String env;
+    static String suite;
+    static String parameters;
 
     @BeforeSuite
     public static void chromeConfig() {
         // This is for Windows users
-        if (System.getProperty("os.name").toLowerCase().contains("win")) {
-            System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+        if (getProperty("os.name").toLowerCase().contains("win")) {
+            setProperty("webdriver.chrome.driver", "chromedriver.exe");
         } else {
-            System.setProperty("webdriver.chrome.driver", "Untitled/chromedriver");
+            setProperty("webdriver.chrome.driver", "Untitled/chromedriver");
         }
+        where = getProperty("where") != null ? getProperty("where") : "local";
+        browser = getProperty("env") != null ? getProperty("env") : "qa";
+        browser = getProperty("browser") != null ? getProperty("browser") : "chrome";
+        suite = getProperty("suite") != null ? getProperty("suite") : "smoke";
+        parameters = where + " " + browser + " " + env + " " + suite;
         // Just checking
-        System.out.println(parameters);
+        out.println(parameters);
     }
 
     private WebDriver getDriver() throws MalformedURLException {
@@ -59,8 +65,8 @@ public class BaseTest {
     }
 
     private WebDriver configLambdaTestDriver() throws MalformedURLException {
-        String username = System.getenv("LT_USERNAME") == null ? "dancefront" : System.getenv("LT_USERNAME");
-        String authkey = System.getenv("LT_ACCESS_KEY") == null ? "Q3kapiUPNjt4PRRUTA4Hx6SEK523Lpi5vGF148aniE6qcdxcwx" : System.getenv("LT_ACCESS_KEY");
+        String username = getenv("LT_USERNAME") == null ? "dancefront" : getenv("LT_USERNAME");
+        String authkey = getenv("LT_ACCESS_KEY") == null ? "Q3kapiUPNjt4PRRUTA4Hx6SEK523Lpi5vGF148aniE6qcdxcwx" : getenv("LT_ACCESS_KEY");
         String hub = "@hub.lambdatest.com/wd/hub";
 
         DesiredCapabilities caps = new DesiredCapabilities();
