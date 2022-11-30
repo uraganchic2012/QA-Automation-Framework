@@ -6,7 +6,8 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage{
 
-    @FindBy(css="[type='email']")
+    public HomePage login;
+    @FindBy(css = "[type='email']")
     WebElement emailField;
 
     @FindBy(css="[type='password']")
@@ -41,8 +42,8 @@ public class LoginPage extends BasePage{
     }
 
     public HomePage login() throws InterruptedException {
-        enterEmail("demo@class.com");
-        enterPassword("te$t$tudent");
+        enterEmail("uraganchic2012@gmail.com");
+        enterPassword("Testpro1416!");
         return submit();
     }
 

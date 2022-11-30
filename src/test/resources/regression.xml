@@ -7,6 +7,8 @@
                     <include name="LoginInvalidPasswordTest" />
                 </methods>
             </class>
+            <class name="CreatePlaylistTests">
+            </class>
         </classes>
     </test>
 </suite>

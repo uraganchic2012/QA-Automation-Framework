@@ -1,5 +1,4 @@
 package pages;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -12,15 +11,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
-public class HomePage extends BasePage{
+public class HomePage extends BasePage {
 
-    @FindBy(css = "[data-testid='sidebar-create-playlist-btn']")
+    @FindBy(css = "[data-testid=sidebar-create-playlist-btn]")
     WebElement createPlaylistButton;
 
-    @FindBy(css = "[data-testid='playlist-context-menu-create-simple']")
+    @FindBy(css = "[data-testid=playlist-context-menu-create-simple]")
     WebElement newPlaylistOption;
 
-    @FindBy(css = "[name='name']")
+    @FindBy (css = "[name=name]")
     WebElement playlistNameField;
 
     @FindBys(
@@ -32,15 +31,16 @@ public class HomePage extends BasePage{
         super(sentDriver);
     }
 
-    public void createPlaylist(String name) throws InterruptedException {
+    public void createPlaylist(String new_songs) {
         createPlaylistButton.click();
         newPlaylistOption.click();
-        playlistNameField.sendKeys(name);
-        playlistNameField.sendKeys(Keys.RETURN);
+        playlistNameField.sendKeys(new_songs);
+        playlistNameField.sendKeys(Keys.ENTER);
         new WebDriverWait(driver, Duration.ofSeconds(1)).until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("[name='name']")));
+
     }
 
-    public int getNumberOfPlaylist() {
+    public int getNumberOfPlaylists() {
         return playlists.size();
     }
 }

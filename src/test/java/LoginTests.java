@@ -8,8 +8,8 @@ public class LoginTests extends BaseTest {
     @Test
     public void LoginTest() throws InterruptedException {
         HomePage homePage = new LoginPage(driver)
-                .enterEmail("demo@class.com")
-                .enterPassword("te$t$tudent")
+                .enterEmail("uraganchic2012@gmail.com")
+                .enterPassword("Testpro1416!")
                 .submit();
         Assert.assertTrue(homePage.isLoggedIn());
 
@@ -17,16 +17,16 @@ public class LoginTests extends BaseTest {
 //        Assert.assertEquals(driver.getCurrentUrl(), "Fail please, so we see the properties: " + parameters);
     }
 
-    @Test
-    public void LoginInvalidPasswordTest() throws InterruptedException {
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage
-                .enterEmail("demo@class.com")
-                .enterPassword("incorrectpassword")
-                .submit();
-        Assert.assertTrue(loginPage.isErrorShown(), "No error shown on Login page");
+//    @Test
+//    public void LoginInvalidPasswordTest() throws InterruptedException {
+//        LoginPage loginPage = new LoginPage(driver);
+//        loginPage
+//                .enterEmail("demo@class.com")
+//                .enterPassword("incorrectpassword")
+//                .submit();
+//        Assert.assertTrue(loginPage.isErrorShown(), "No error shown on Login page");
 
 //        Just checking :)
 //        Assert.assertEquals(driver.getCurrentUrl(), "Fail please, so we see the properties: " + parameters);
-    }
+//    }
 }
